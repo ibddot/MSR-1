@@ -379,18 +379,37 @@ sensor:
     moving_distance:
       name: Radar Moving Distance
       id: moving_distance
+      filters:
+        - or:
+          - throttle: 60s
+          - delta: 25.0
     still_distance:
       name: Radar Still Distance
       id: still_distance
+      filters:
+        - or:
+          - throttle: 60s
+          - delta: 25.0
     moving_energy:
       name: Radar Move Energy
       id: radar_moving_energy
     still_energy:
       name: Radar Still Energy
       id: radar_still_energy
+      filters:
+        - or:
+          - throttle: 360s
+          - delta: 2.0
+        - or:
+          - throttle: 60s
+          - delta: 5.0
     detection_distance:
       name: Radar Detection Distance
       id: radar_detection_distance
+      filters:
+        - or:
+          - throttle: 60s
+          - delta: 25.0
     g0:
       move_energy:
         name: g0 move energy
@@ -465,6 +484,13 @@ sensor:
     light:
       name: "LTR390 Light"
       id: ltr390light
+      filters:
+        - or:
+          - throttle: 600s
+          - delta: 0.5
+        - or:
+          - throttle: 60s
+          - delta: 2.0
     update_interval: 5s
 
   
